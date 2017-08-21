@@ -1,0 +1,1372 @@
+LPIC - Linux Essentials
+Introduction 
+-------------------------------
+Open source Philosophy
+-------------------------------
+GNU - Gnu is Not Unix
+FSF - Free Software Foundation
+GPL - General Public License -> source code remain freely available to anyone who might want it
+-------------------------------
+Distributions
+-------------
+Lnx has many different distributions
+Each distribution has a linux kernel,utilities and configs
+What could make up a full blown lnx distribution?
+-Linux Kernel
+-Core Unix tools
+-Supplemental Software
+-Startup scripts(these are being phased out)
+-Installers
+Different Distributions
+-CENTOS
+-DEBIAN
+-FEDORA
+-GENTOO
+-OPENSUSE
+-REDHAT
+-SLACKWARE
+-SUSE
+-UBUNTU
+what distribution is right for our project
+-is the system going to be for desktop or server use
+-if this is for production then a commercial distribution might suit best   
+-Does your system hardware support the distribution of choice?
+-------------------------------
+Linux Embedded Systems
+-------------------------------
+-OSs based on linux kernel are used in embedded systems such as consumer electronics,networking equipment,machine control,industrial automation,navigation equipment,spacecraft flight software and medical instruments in general.
+-Android is a mobile OS based on linux kernel that is being developed by Google.
+-Debian Linux distribution - it has a linux kernel that is embedded to the Raspberry Pi device
+    Raspberry Pi is a low cost,credit card sized computer that plugs into a computer monitor or TV,and uses a standard keyboard and mouse.It is a capable little device that enables peoples of all ages to explore computers and learn how to program in languages such as python.
+-Linux can be found embedded in a lot of different cable providers TV set-top boxes around the world
+-Android is now showing up on these boxes such as the Google TV which in itself is another form or type of embedded linux system.
+
+
+-------------------------------
+CentOS Installation on VirtualBox
+
+-------------------------------
+
+-------------------------------
+Installing CentOS
+-------------------------------
+Guest addition packages - for easy switching between VirtualBox VM and host OS and many other uses
+
+#yum install kernel-devel
+
+Installing gcc
+#yum install gcc*
+
+VirtualBox toolbar->Device->Insert Guest Additions CD image
+
+-------------------------------
+Desktop Applications
+-------------------------------
+Linux as a desktop
+-GNOME
+-KDE - gtk
+-LXDE - Lightweight
+-UNITY - much like GNOME
+-XFCE - commercial desktop application,consumes few resources as possible
+
+Package manager
+-yum - used for installing packages 
+#yum install <name of the package>
+-gimp - GNU Image Manipulation Program - photoshop like app
+-thunderbird mail - similar to outlook
+
+-apt-get - yum like app
+#apt-get install <packagename>
+
+Other Apps
+OpenOffice.org
+Calibre Office - ebook mgmt tool
+Audacity
+Thunderbird
+GIMP 
+Pidgin - Instant messaging tool
+Blender - 3D rendering application
+
+-------------------------------
+Server Applications
+-------------------------------
+-Linux runs some of the most powerful server applications today
+-Linux Server Apps actually run most of the websites that we might visit
+-Apps listen and bind on IP addresses via network ports.Think of ports as telephone extension numbers
+
+Common network ports
+Port    Protocol    Server App
+-------------------------------
+22     SSH         OpenSSH
+23     TELNET      telnetd
+25     SMTP        PostFix,Sendmail
+53     DNS         Bind,Named
+67     BOOTP       dnsmasq,dhcpd
+80     HTTP        Apache
+443    HTTPS       Apache
+
+-Apache -> 
+-MySQL -> widely used DB server
+-MONO -> Open source implementation of MS .Net technology to develop server apps that can be used on linux machines.
+-CUPS -> Printing server(local n network printers)
+-POSTFIX -> mail transfer agent (sendmail and POSTFIX are enterprise level mail services)
+
+-Server can be a entire computer system or just a single program running  on that system
+-Network protocols is for connections from clients
+-Servers(can take requests from thousands of clients) are more powerful than clients
+
+-------------------------------
+Mobile Applications
+-------------------------------
+-Mobile Apps on Android phones and tablets
+-Apps can either be free or have a small fee
+-Apps are downloaded and installed via the Android marketplace
+-Android based apps are different than desktop based apps as they are specific for the android mobile platform.
+
+-------------------------------
+Development Languages
+-------------------------------
+-Open Source SW development
+    -SW Development models
+        =>Cathedral Model - Organised sw dev model..less collaborative but has more structured in nature.
+        =>The Bazaar model - less organised than cathedral model..chaotic..depends on collaboration.this is the model Linux's founder used
+-Some Popular open source dev languages
+    -Java
+    -C/C++
+    -JavaScript
+    -Python
+    -Ruby
+    -Perl
+    -PHP
+
+For Sys Admins - need to have basic knowledge of programming
+-Compiled Languages
+    convert or compile the source code to binary format.
+-Interpreted Languages
+    conversion happens literally line by line.
+-Assembly Language Programming
+    low level programming
+
+-------------------------------
+Package Mgmt tools and Repositories
+-------------------------------
+
+Package Mgmt 
+    - Package Mgmt can differ from one distribution to the next
+    - Installing Lnx apps and programs is similar but very different than Windows
+Most Applications and programs require what is known as library packages.
+Lnx Package files are unlike windows installers and are not programs.
+Packages actually rely on other programs in order to install the software.
+What is package
+-Dependency Info
+-Version Info
+-Architecture Info
+-Binary packages are packages that have an executable built from source
+
+You can actually compile and install software from the source code manually without using a packaging tool
+
+Imp:Pckage tool sw keeps a Database of info about the installed apps including the locations of the files that were placed on the linux file system during that package installation
+
+Two common package systems that are usually used today
+    -RPM
+    -Debian
+Lnx Distribution typically have their own package types.therefore you cannot install an RPM based package on a Debian distribution out of the box.
+
+Package managers at one point had to download source locally and then be installed.
+
+Modern distributions now offer network based tools that use software repositories.
+
+How does a usual software install work on linux ?
+    -Issue the install command for program
+    -The sw then locates any dependencies it might need and then notifies you if those additional sw dependencies need to be isntalled
+    -Approve the sw to be installed and continue the process
+    -the sw then downloads the packages that might be needed
+    -Finally the sw then installs
+
+Distribuitions  package formats:
+
+    CentOS      RPM
+    Debian      Debian
+    Ubuntu      Debian
+    Arch        pacman
+    Fedora      RPM
+    Redhat      RPM
+    Slackware   tarballs
+    Gentoo      ebuild
+    Suse        RPM
+    OPenSuse    RPM
+
+What about upgrading sw
+    -most of the modern distributions check peridoicallu for any updates to packages installed
+    -you may then be notified of the sw needing to be updated
+    -you then approve the updated and they are upgraded automatically
+Managing RPM based systems
+    -Distributions that use RPM packages use the local files with the text-mode rpm command to install
+    -In order to use online network repos,other tools exist
+        -Redhat,CentOS,Fedora
+            -Text mode YUM
+            -GUI based front end version like YUMEX
+        -SUSE Enterprise,OpenSUSE
+            -zyper for command line
+            -YAST for GUI based installs
+        -Mandriva - uses a text mode tool known as urpmi and then for GUI RPMDRAKE
+-------------------------------
+Hands ON
+-------------------------------
+
+RPM based - YUM
+Debian based - APT
+    
+On Ubuntu - apt
+------------------------------
+MAN APT
+
+#vi /etc/apt/sources.list - contains repos where we can find the dependent packages
+we can add repos to the list but its not recommended due to security purposes.
+#apt-get update -Reads and updates the package lists
+#apt-cache search nginx - lists what app packages related to ngnix
+#apt-get install nginx
+#apt-cache search apache
+#apt-get install apache2
+#apt-get upgrade apache2
+#apt-get dist-upgrade (updates kernel)
+Removing the packages
+#apt-get remove nginx
+We need also remove any config files
+#apt-get remove --purge nginx
+#apt-get autoremove
+#apt-get remove apache2
+#apt-get autoremove
+    
+dpkg - to install debian packages(*.deb)
+
+#dpkg -i <filename>.deb
+if you see any errors regarding dependencies we need to run apt-get upgrade
+#apt-get -f upgrade (-f fix flag)
+#dpkg -i <filename>.deb
+#dpkg --get-selections 
+#dpkg --get-selections | grep dropbox
+to remove debian pacakges
+#dpkg --remove dropbox
+removes libraries but not configs
+#dpkg --purge dropbox 
+
+On Redhat/Suse/CentOS - yum
+-------------------------------
+On CentOS
+
+RPM
+MAN RPM
+#which nano
+nano text editor to edit config files
+#yum remove nano
+Installing nano(download nano rpm from website)
+#rpm -ihv <nanopackagename>.rpm
+i - install
+h - shows the progress of installation
+v - verbose mode 
+#whereis nano
+#rpm -q nano
+querying package name
+nano-2.3.1-10.el7.x86_64
+nano - package name
+2.3.1 - release version
+10.el7 - build number
+x86_64 - architecture
+
+#rpm -qi nano
+outputs entire info about the package including the installation date
+#rpm -e nano
+uninstalls the package nano
+removes nano without any msgs
+#rpm -qR nano (to remove dependecies)
+
+YUM
+MAN YUM
+
+#cd /etc/yum.repos.d/
+similar to apt-get repo
+CentOS-Base.repo
+#yum update (updates the repos/source lists)
+#yum search httpd(on centos/redhat/ubuntu apache2 is httpd)
+#yum install httpd.x86_64
+#yum check-update httpd (to check the updates for package httpd)
+#yum upgrade(checks the updates for all the packages)
+#yum deplist httpd (dependency list)
+#yum remove httpd
+#yum clean packages
+#yum clean all
+
+-------------------------------
+Licensing
+-------------------------------
+-Software is type of intellectual property
+-Opensource beginnings
+    -Free Software Foundation(FSF)
+    -Open Source Initiative(OSI)
+    -Creative Commons
+-Copyrights and Software
+    -A Copyright is leaglized right to copy something
+    -Most Countries are signatories of what is known as the Berne Convention
+        -The Berne Convention is an international treaty that requires countries to recognize the other countries copyrights
+-Software Trademarks and Patents
+    Patents : are the very idea of a copyrighted work
+        If oyu invented something,you can get it patented.A patent is set of exclusive rights granted by a sovereign state to the inventor or assignee for a limited period of time in exchange for detailed public disclosure of an invention
+    Trademarks : the essential function of a trademark is to exclusively identify the commercial source or origin of products or services,so a trademark,properly called,indicated source or server as badge of origin.In other works,trademarks server to identify a particular business as the source of goods or services.The use of trademark in this way is known as trademark use.
+Commercial Software and Shareware software
+    -Commercial software is a sw that is developed with the intent to sell that software as a profit.
+    -Shareware software is similar to commercial software except at the copyright and legal perspectives.
+    -Freeware is like shareware but the software is always free and has no cost involved.
+PDF - Portable document format
+-------------------------------
+5:42PM to 6:04PM FSF,OSI
+-------------------------------
+GPL - General Public License
+    -license used by linux kernel
+    -FSF
+        Founded by Richard Stallman 1985
+        Driving force behind the GNU project
+    "Free as in speech,not free as in Beer"
+    
+FSF 
+
+comeback to video if you find time
+
+-------------------------------
+6:04PM to Open Source Business models
+-------------------------------
+Many Approaches to making a profit
+-Dual Licensing
+-Multiple Products
+-Open Source drivers
+-Bounties
+-Donations
+
+Get back when you have time
+
+--------------------------------------------------------------
+Information and community technology skills (ICT) 
+--------------------------------------------------------------
+Desktop Skills
+
+Where is linux found and used
+-Lots of places
+-Server rooms and data centers around the world
+-Cloud computing
+-Embedded devices like Android,TiVo and GPS
+-Airport Signage,the mars rover and so much more
+
+We can also use linux on our desktop
+Many desktop managers are available
+Office productivity suites
+Web Browsers
+File Saving
+Terminal
+
+KDE
+    -The K Desktop Environment is one of the most popular desktop envs for linux.
+    -It is the default desktop env for Mandriva and SUSE distributions.
+    -IT includes many powrful tools
+    -gtk plus and QT are wizard libaries used in KDE 
+GNOME
+    -Default desktop env for redhat,CentOS and more(also built on gtk plus and QT wizard libs)
+LXDE 
+    Lightweight X11 Desktop Env
+UNITY
+    -Publisher of Ubuntu created this 
+XFCE
+    -modeled as a commercial desktop env and provides more customization that of GNOME or KDE.
+
+Launching Programs
+Desktop Menus
+Panels
+Context Menus
+Searching for programs
+Terminals
+
+-------------------------------
+Desktop Skills Hands-On
+-------------------------------
+On CentOS
+
+-------------------------------
+Industry uses of Linux
+-------------------------------
+-WebServers
+-Mobile App servers
+-SQL DB servers
+-Cloud Computing
+    -Google Apps
+    -DropBox
+    -Evernote
+-Virtualization
+    -it is the creation of virtual OS through a virtualization sw that is known as hypervisor
+    -this allows us to virtualize an OS in another computer/OS known as the host
+    -this virtualized OS that live upon this host are known as the Guest OS
+    -Virtualization SW(Hypervisors)
+        -VirtualBox
+        -VMWare
+        -KVM/QEMU
+        -XEN
+
+
+-------------------------------
+Basic Shell
+-------------------------------
+
+Shell is command list interpreter that allows us to type commands at our keyboard and those commands are actually sent to the operating system kernel.
+
+-sh - Boourne shell - earliest shell 
+-bash - Bourne again shell - improved version on sh -popularlu used today
+-csh - c shell - developed for BSD unix platform
+-tsch - tcsh shell - improved csh
+-zsh - improved version of bash shell
+-ksh - korn shell - similar to the c shell
+
+$echo $SHELL
+/bin/bash
+$zsh (to change the shell)
+
+-------------------------------
+Commands
+-------------------------------
+#halt
+#reboot
+#init 0
+#init 6
+#shutdown -H 
+#shutdown -P
+#shutdown -r
+#shutdown -h
+#shutdown -c
+#exit
+#su (substitute user or super user used to switch user)
+$env (env variables for current user)
+#top (shows list of apps or processes currently running on the machine)
+#clear 
+#which halt (shows the path to executable)
+#whoami
+#netstat (shows the status of the network)
+#route
+$ifconfig
+$ ip addr
+
+$uname
+$uname -s (linux kernel's name)
+$uname -n (hostname)
+$uname -r (kernel's release number)
+$uname -v (Kernel )
+$uname -o
+$uname -m (architecture)
+$uname -p (processor type)
+$uname -i (hardware platform)
+$uname -a (outputs results of all the options)
+
+$cat .bash_history ( history of commands )
+$export HISFILESIZE=99999(changes history filesize)
+$echo $HISFILESIZE
+
+command completion or autocomplete the command
+$tar -zxvf te<tab>
+
+cd(change directory) and pwd(print working directory)
+$cd (move to home directory)
+$pwd
+-------------------------------
+Shell configuration files
+-------------------------------
+Login shell and terminal are different
+
+
+cat /etc/bashrc - 
+cat /etc/profile
+from home directory
+$ls -a
+.bash_logout
+.bash_profile
+.bashrc
+
+-------------------------------
+Variables
+-------------------------------
+-Variable is placeholder for another value.These can be used in scripts for example later on.
+-An Env is just a set of variables that are used in configuring system computing envs
+-There are USER DEFINED and SYSTEM DEFINED variables
+
+~ tilde
+$cd ~ (moves to home directory)
+how the above command works
+$echo $HOME
+
+Common Env Variables
+
+BASH and SHELL
+CPU
+DISPLAY
+ENV
+EUID - UID number of current user
+HISTFILE - ~/.bash_history
+HISTSIZE - 1000
+HOME    - Current users home directory
+HOST and HOSTNAME - systems assigned hostname
+LOGNAME - Username of current user
+MAIL - path to mail file(/var/spool/mail/username or /var/mail/username)
+MANPTH - distribution dependent
+OLDPWD - prior current directory
+OSTYPE - Linux
+PATH - distribution dependent
+PSI - Distr. dependent
+PWD - depends on current directory within
+USER and USERNAME - current user name
+
+User Defined variables
+$awesome="stephen"
+$echo $awesome
+stephen
+User defined variables are available in current shell and so we use export
+$export awesome
+Variable names shouldn't be starting with numbers.
+
+-------------------------------
+Globbing
+-------------------------------
+It is the process of expanding non-specific filename containing wildcard character 
+Globbing actual stands for global command
+
+$ls *.txt (lists files with txt extension)
+$ls test* (lists files/directories which starts with test)
+$ls ?.txt (list file with txt extension and name shoudl contain on ly one character)
+$ls ???????.txt (list file with txt extension and name should have filename with ? no of chracters)
+$ls [F]*.txt
+$ls [f]*.txt
+$ls f[igh][lfz]e*.txt (list files with f as 1st character,2nd character one of [igh],3rd character one of [lfz] followed by e and any character with txt extension)
+
+-------------------------------
+Quoting
+-------------------------------
+Double quote
+    -Substitues the value of variables and commands
+        Ex: echo "USERNAME is $USER"
+            USERNAME is suman
+Single quote
+    -Preserves the literal meaning of the each character of a given string
+    -This will turn off the special meanings of all characters
+        Ex: echo 'USERNAME is $USER'
+            USERNAME is $USER
+Backslash
+    -Takes away or removes the special meaning from a single character and can be used as an escape character
+    -If we did not have the \ character before $5.00 here it would try and interpret the following command as a variable
+    $echo "the cheeseburger is going to cost you $5.00"
+    the cheeseburger is going to cost you .00
+    $echo "the cheeseburger is going to cost you \$5.00"
+    the cheeseburger is going to cost you $5.00
+
+-------------------------------
+Formatting commands
+-------------------------------
+Operation of Linux command can be thought of in three ways
+    - Computer waits for the user input
+    - User selects a command and enters it via the keyboard or mouse
+    - Finally the computer executes the command
+$ls \ ( if we have long list of options or filenames)    
+
+-------------------------------
+Working with options
+-------------------------------
+Linux command parameters can be divided into two types:
+    -Parameters with a dash("-") are called options
+    -Parameters with no leading dash are called arguments
+    
+Formatting commands conceptually look like this :
+    -Command - what to do ?
+    -options - how to do it?
+    -arguments - what to do with it ?
+
+-------------------------------
+man
+-------------------------------
+
+Sections in a man page
+
+1 Executable Programs and shell commands
+2 System calls provided by kernel
+3 Library calls provided by the program libraries
+4 Device file (usually stored in /dev)
+5 File formats
+6 Games
+7 Miscellaneous(macro packages,conventions and so on)
+8 System Administration commands(programs run mostly or exclusively by root)
+9 Kernel routines
+
+Usage 
+man <command name>
+
+want to extract particular seciton of the man page of a particular command
+man 5 passwd
+$whatis passwd
+
+$apropos man 
+$man -k passwd (returns all of the man pages that contains the passwd)
+    
+MAN pages are organized like so :
+
+Name
+Synopsis
+Description
+OPtions
+Files
+See Also
+Bugs
+History
+Author
+
+-------------------------------
+Linux File system
+-------------------------------
+The role of Linux file system
+-where data is stored on a storage device within a certain manner  
+    -Data is organized and easily located
+    -Data can be saved in a persistent manner
+    -Data integrity is preserved
+    -Data can be quickly retrieved for a user in a later point in time
+-The linux file system and file system hierarchy standard (FHS)
+    -LFS used a hierarchy structure to organize data
+    -Linux systems have a standard in which 
+    
+ls /
+bin
+boot
+dev - hardware devices installed on the system(character oriented device like prnters /US hdds etc)
+etc - text based configuration files
+    important files and directories under etc
+    /etc/aliases - Contains a table used to redirect all to lcoal users
+    /etc/exports - configured file systems to be exported to remove NFS clients
+    /etc/fstab  - lists the partitions and file systems that will be automatically mounted when we boot our linux system
+    /etc/ftpusers   -  controls users access to FTP service running on a linux system
+    /etc/group  -   contains local group definitions
+    /etc/grub.conf  - contains config parameters for the init process
+    /etc/hosts  - contains the list of hostname of IP address mappings that we can use to resolve certain hostnames
+    /etc/inittab    - contains config parameters for the init process
+    /etc/init.d     - this is a sub directory that contains startup scripts and services
+    /etc/rc.d/inti.d    - Redhat or CentOS based systems startup scripts
+    /etc/passwd     -   this is our linux systems users accounts file
+    /etc/shadow     -   this contains encrypted passwords for our user accounts
+    /etc/resolv.conf    -   this is where we specify what DNS server and domain suffic that out system is going to use
+    /etc/X11    -   has the X windows configuration files
+home - home directories of all the users on the machine
+lib - contains code libraries 
+media - external devices
+mnt - to mount external drives
+opt - files to install programs on your own
+proc - sudo file system
+root - root user's home directory
+sbin - similar to bin directory
+srv - contains 
+sys
+tmp
+usr - application files
+    bin
+    etc
+    games
+    include lib lib64
+    libexec
+    local 
+    sbin
+    share
+    src
+    tmp
+var - log files
+
+Types of file system formats
+
+    Linux Disk File Systems
+        - ext2 - max file supported is 2TB
+        - ext3 - updated version for ext2,we can upgrade from ext2 or downgrade to ext2
+        - Reiser - Alternative to ext3 and similar
+           - different internal structure
+        - ext4
+-------------------------------
+Files and Directories
+-------------------------------
+ls -l
+ls -R
+-------------------------------
+Hidden Files and directories
+-------------------------------
+any file or folder that begins with a dot is a hidden file/folder
+$touch .testfile.txt
+it will create a hidden file 
+-------------------------------
+Absolute and Relative paths
+-------------------------------
+Get to know the difference between the paths that should suffice
+
+-------------------------------
+creating/mainpulating files and directories
+-------------------------------
+touch command to create blank files and can be used to update the timestamps on the files and directories.
+touch -c
+touch -d <timestamp> <filename>
+$touch -d "February 1 2015" 
+
+cp command
+get to know the complete list of options
+cp -p
+cp -R,-r
+cp -a
+cp -u 
+
+mv command
+rm command
+mkdir command
+
+-------------------------------
+Case Sensitivity
+-------------------------------
+
+-------------------------------
+Simple globbing and quoting
+-------------------------------
+Practice
+
+-------------------------------
+Power of linux command line
+-------------------------------
+Archiving
+    tar
+        -a linux utility that archives things."It doesn't compress or compact files".It just sticks all your files together into one file
+        -traditionally tar was used to create tape backups.we used it to archive date onto tape backup drives.tar actually stands for "Tape Archive".
+        - -cf (creates file)
+        - -xf (extracts file)
+Compressing Archived files or just any file
+Gzip - gzip,gunzip
+Bzip2 - bzip2,bunzip
+Zip - zip,unzip
+    tar 
+        -zcf (gzip)     file.tar.gz or file.tgz
+        -jcf (bzip2)    file.tar.bz2 or file.tb2
+        
+        for extracting
+        
+        -zvf
+        -jvf
+        
+--------------------------------------------------------------
+Searchign and Extracting data from files commands
+--------------------------------------------------------------
+cat             displays the contents of a text file
+less            reads a file
+head/tail       Reads firs 10lines oof file or last 10lines of a file
+find            Locates files on system
+grep            searches string in our file
+sort            organizes text in a file
+cut             manipulates data by columns
+wc              can be used to do a word count on a file
+
+Using Pipes
+
+Standard Bash File Descriptors
+    stdin  - means we have standard input
+    stdout - means we have std output
+    stderr - stands for std error
+
+-------------------------------
+I/O redirection
+-------------------------------
+> usage $tail /var/log/messages > listlog.txt
+        $cat myfiles.txt 2> myerrors (non-existent file)
+< usage $
+
+-------------------------------
+Regular Expressions
+-------------------------------
+
+-------------------------------
+Basic text editing
+-------------------------------
+vi,vim,emacs,nano - text editors
+man vi
+
+-------------------------------
+Basic Shell scripting
+-------------------------------
+
+&& AND
+|| OR
+
+rm file1.txt && ecoh "File deleted" || echo "File not deleted"
+
+if/then syntax
+
+if condition then
+    command
+else
+    command
+fi
+
+Options for if/then/else
+
+-d      check to see if the specified directory exists
+-e      if the specified file exist
+-f      if the specified file exist and it is a regular file
+-G      if the specified file exist and it owned by a specific group
+-h or -L    if the specified the file exist and if it is a symbolic link    
+-O      if the specified file exist and if it is owned by a specific UID
+-r      if the file exist and if it had read permission
+-w      if the file exist and if it had write permission
+-x      if the file exist and if it had execute permission
+-z      checks for the variable
+
+Looping Structures
+while loop          until loop          for loop
+
+Structure
+
+while condition
+do
+    script command
+done
+
+until condition
+do
+    script command
+done
+
+for i in `seq 15`   #seq is command
+    do 
+        echo "$i"
+    done
+exit 0
+
+Revisit Hardware/Kernel/Processes videos
+
+-------------------------------
+Internet,Network,Routers
+-------------------------------
+Linux can be used as anything of the below
+Domain Controller
+Database Server
+DHCP server
+Web Server
+E-Mail Server
+File and print server
+Packet-filtering,stateful or even application-level firewalls
+Proxy server
+Content filter server
+Router
+
+Networking Basics
+Networks use protocols to talk to one another(think of a protocol as a language)
+Computer systems need to speack the same language to send and receive data
+IP Protocol
+    - A networking protocol usedo n the internet
+    - Works with other protocols such as TCP (Transmission Control Protocol)
+    - Works with the UDP (user Datagram Protocol)
+The OSI reference model breaks down the overall communication process into specific task.
+    - The OSI model has 7 layers
+    
+        PC1                     PC2
+|    7Application ()          
+|    6Presentation          
+|    5session (responsible for maintaining the connection b/w two hosts)
+|    4Transport(TCP/UDP operates at this level)
+|    3Network(IP protocol operates at this level) 
+|    2Datalink()
+|    1Physical(Network card)
+|
+\/----------------->
+
+TCP ensures data exchange b/w two network hosts is exchanged reliably
+    Typical upper-layer applications that use TCP are
+        Web Servers
+        E-mail Servers
+        FTP Servers
+UDP
+    It is a connectionless protocol
+    UDP pacakets are sent unacknowledged
+    Aplicatiosn that can tolerate less reliability can use UDP
+    Typical upper-layer apps that use UDP are
+        Streaming Audio
+        VoIP
+ICMP - Internet Control Message Protocol
+    It is for testing n verifying network communication between hosts 
+        Eg: ping
+
+PORTS
+    -TCP and UDP both provide ports for upper layer protocols
+    -Port nubers range from 0 upto 65536 for each individual IP address
+Well Known Ports
+Range 0-1023
+    20 n 21     FTP
+    23          Telnet
+    25          SMTP
+    80          HTTP
+    110         POP3 (email services)
+    137,138,139 NetBIOS
+    443         HTTPS(secure http)
+    
+Registered ports
+Range 1024-49151
+    Orgs can program their own netwrok service and then apply for a registered port number to be assigned to it
+Dynamic ports or private ports
+Range 49152-65535
+    These are available for use by any network service
+
+-Every host on an IP-based network must have a unique IP address assigned to it
+-Different than MAC address in which MAC address never changes and is burned in or hardocded to the network board
+-IP addresses consist of four numbers,separated by periods
+-In this decimal notation,each number must be between 0 and 255
+-Each number in the address is an eight-bit binary number called an octet
+-Each octet of binary number can be represented by 0's and 1's
+
+IPv4 - is a 32-bit addressing scheme allows only for 4billion IP addresses which is a limitation as of today
+To address this issue new IP Version was created known as IPV6
+IPV4 is 32bit IP scheme
+IPV6 is 128bit IP scheme
+IPV6 are composed of four character hexadecimal number separated by colons
+
+NAT - Network Address Translation
+    We use NAT router that creates a private IP address space on our LAN with multiple devices and computers but the outside the router has only 1 public IP address in which internal network gets translated through
+Private IP address ranges:
+    Class A     10.0.0.0 - 10.255.255.255
+    Class B     172.16.0.0-172.31.255.255
+    Class C     192.168.0.0 - 192.168.255.255
+    
+SUBNET MASK
+    Network vs Node with our IP address
+    Network 192.168.1.
+
+    Class A subnet Mask:    
+        First octet must be between 1 and 126
+        First octet is the network address
+        Last three octets of the address is the node address
+        Default subnet mask class A
+            255.0.0.0
+        Class A allows 126 total possible network
+        Class A can offer 16.7 million possible node addresses
+    Class B Subnet Mask:
+        First octet must be between 128 and 192
+        First two octets are the network address
+        Last two octets of the address is the node address 
+        Default subnet mask class B
+        255.255.0.0
+        Class B allows 16,384 total possible networks
+        Class B can offer 65,534 possible node addresses
+    Class C subnet Mask:
+        First octet must be between 192 and 223
+        First three octets are the network address
+        Last octet of the address is the node address 
+        Default subnet mask class B
+        255.255.255.0
+        Class c allows 2,097,152 total possible networks
+        Class c can offer 254 possible node addresses
+Subnet mask can be typed in shorthand:
+    192.168.1.1/24 - indicates that 24bits are used for subnet mask
+Partial Subnet
+    you do not have to use the default subnet mask
+    For PC3 to speak with PC2 and PC1,we need a router because it is a different subnet.Without this route,PC3 cannot communicate other hosts using 255.255.255.0
+    
+---------------------------------------------------------------------------------------------
+Domain name server (DNS) and the default gateway(Network Router)
+---------------------------------------------------------------------------------------------
+When looking upa URL or domain names,we have to translate that domain name into the IP address of a web server:
+    -DNS servers translate domain names into IP addresses
+
+dig utility to get the details of domain name
+
+-------------------------
+Network Configuration
+-------------------------
+A few important network tools :
+
+ping        testing of connectivity of a remote network device
+dig         allows to lookup IP address for DNS names
+netstat     List network connections,routing info,NIC info
+route       Current route/net settings
+traceroute  traces the route a packet takes
+ifconfig    current network settings
+ip addr     current IP address and network settings
+
+/etc/resolv.conf
+    this is where our DNS server info is stored
+
+ipconfig
+    loopback address 127.0.0.1
+
+vi /etc/sysconfig/network-scripts/ifcfg-eth0
+DEVICE="eth0"
+BOOTPROTO="dhcp" --> assigns IP address dynamically from DHCP server    
+            can be set to static and add IPADDR="10.10.30.210" and NETMASK="255.255.255.0"
+            NETWORK="10.10.30.0"
+ONBOOT="yes"
+TYPE="Ethernet"
+USERCTL="yes"
+PEERDNS="yes"
+IPV6INIT="no"
+PERSISTENT_DHCLIENT="1"
+    
+------------------------- 
+Root and Standard users
+-------------------------
+finger utility
+/etc/shadow
+/etc/passwd
+w command
+ JCPU
+ PCPU
+last command
+------------------------- 
+System Users
+------------------------- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
