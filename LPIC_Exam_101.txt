@@ -1,0 +1,107 @@
+LPIC Exam 101
+	
+Topic 101 : System Architecture
+	. Determine and configure H/w settings
+	. Boot the system
+	. Change Run levels/Boot Targets and shutdown or reboot the system
+
+Topic 102: Linux installation and package Management
+	. Design Hard disk layout
+	. Install a boot manager
+	. Manage shared libraries
+	. Use debian package management
+	. Use RPM and YUM package management
+
+Topic 103 : GNU and Unix Commands
+	. Work on cmd line
+	. Process Text Streams using filters
+	. Perform Basic File management
+	. Use Streams, Pipes and Redirects
+	. Create, Monitor and Kill Processes
+	. MOdify process execution priorities
+	. Search Text files using regular expressions
+	. Perform basic file editing operations using VI
+
+Topic 104 : Devices,Linux Filesystems and Filesystem Hierarchy Standard
+	. Create Partitions and Filesystems
+	. Maintain the integrity of Filesystems
+	. Control Mounting and Unmounting the filesystems
+	. Manage disk quotas
+	. Manage file permissions and ownership
+	. create and change hard and symbolic links
+	. Find system files and place files in correct location
+
+
+###################################################################
+Topic 101 : System Architecture
+###################################################################
+101.1 Determine and Configure h/w settings(Filesystem and Device Files)
+
+everything on lnx dist is treated as a file - this simplifies how we work with devices and apps on the system
+
+Special filesystems - pseudo filesystems 
+	contains info abt system hw or state of the system
+		procfs - 
+			$df -h
+			
+			$cat /etc/fstab
+			lists out all the filesystems and mounts configured on the machine.
+			
+			#cd /proc
+				contains numbered directories corresponds to the running processes
+				
+			#cd 1
+				contains hte directories and info about the particular process
+			#cd /proc
+			#cat mounts
+			#cat interrupts
+			#cat ioports - addresses that identify a device and kernel module that it is associated with
+			#cat dma - a device can use system memory directly
+			#cat usb
+			#cat pci
+			
+		sysfs - 
+			designed to adddress problems iwth proc which is unorganized data
+			#cd /sys
+			#cd block 
+			
+		dev - not a filesystem but its a method of listing the hw within a directory and they correspond to device on the system
+			#cd /dev
+			#ls
+			hotplugin or hot swapping
+		
+		udev system
+
+101.1 Determine and Configure h/w settings(Tools and Utilies to Explore system devices)
+	
+	lsmod - list kernel modules that are loaded into memory along with the dependencies
+	#man lsmod
+	#lsmod
+	
+	lscpu - information about the CPU architecture
+	#man lscpu
+	#lscpu
+	#lscpu -a
+	#lscpu -ae
+	#lscpu --parse
+	
+	#lspci
+	#lspci -v
+	#lspci -vmm
+	#lspci -t
+	#lspci -tv
+	
+	#lsscsi - looks for scsi or sata devices
+	#lsscsi
+	#lsscsi -d
+	#lsscsi -g
+	#lsscsi -s
+	#lsscsi -v
+	#lsscsi -l
+	
+	#lsblk - lists block devices on the system
+	#lsblk -f 
+	#lsblk -t 
+	
+	
+
