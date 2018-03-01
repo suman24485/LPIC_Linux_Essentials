@@ -98,10 +98,127 @@ Special filesystems - pseudo filesystems
 	#lsscsi -s
 	#lsscsi -v
 	#lsscsi -l
+	#lsscsi -lv
 	
 	#lsblk - lists block devices on the system
 	#lsblk -f 
 	#lsblk -t 
 	
+	#lsusb
+	#lsusb -s
+	#lsusb -t
 	
+	#lspci
+	#lsraid
+	
+	#lsdev - tells us everything that are detected
 
+101.2 Boot the System(Boot Process - sysvinit - Power on to System Prompt)
+
+sysvinit - package of grp of processes that are responsible for controlling the basic fns of the systems.
+		it includes the init app which is very first app started by kernel after the boot loadeder starts the boot process
+		init then controls the startup ,running and shutdown of all other programs.
+		
+	Boot Process - 20 Steps
+		System power ON
+		BIOS load (MOdern systems includes EFI - Extended firmware Interface designed to replace BIOS) 
+		BIOS scans and handsoff to primary disk's 'boot sector'
+		Boot sector provides the MBR(Master Boot Record)
+		Boot Loader is executed
+		LILO/GRUB/GRUB2 begins
+		USER INPUT - choose from menu of potential boot types or kernel versions or allow the default to proceed
+		Linux kkernel is read and executed
+		device initialization,module loading  and initial RAM disk is loaded
+		Root filesystem is mounted
+		the init program loads (becomes first process ID - /sbin/init)
+		Modules indicated within the init scripts are loaded
+		Root filesystem is checked
+		Remaingin local filesystems are mounted
+		N/w devices are started
+		REmote filesystems are mounted
+		init process rescans the /etc/inittab file and change/sets the system to indicated default runlevel and completes execution of apporiate scripts
+		Runlevel scripts are executed in numeric order
+			Common runlevel types for sysvinit
+				0-HALT(SHUTDOWN)
+				1-Single user
+				2-Multi-User(No Network or remote filesystem)
+				3-Full Mutli-USer(including networking and remote filesystem)
+				4-Unused
+				5-X11(Full multi-user with Graphical Desktop Env)
+				6-Reboot
+				cat /etc/inittab
+					id:3:initdefault:
+		TTY Sessions are loaded(as listed in /etc/inittab)
+		System login prompt is dispalyed on console,system is ready for login
+
+systemd - like sysvinit it is a initialization sys for bootstrapping the user space and managing all processes subsequent to sys start
+		developed to replace sysvinit n address some of its shortcomings
+		currently systemd is the default initialization and service mgmt process of almost all modern linux distributions
+		considered to be more efficient,allows parallel operations,has fewer dependencies,allows for service prioritization and precedence and reduces start up time
+
+	Boot Process
+		System power ON
+		BIOS load (MOdern systems includes EFI - Extended firmware Interface designed to replace BIOS) 
+		BIOS scans and handsoff to primary disk's 'boot sector'
+		Boot sector provides the MBR(Master Boot Record)
+		Boot Loader is executed
+		LILO/GRUB/GRUB2 begins
+		USER INPUT - choose from menu of potential boot types or kernel versions or allow the default to proceed
+		Linux kkernel is read and executed
+		device initialization,module loading  and initial RAM disk is loaded
+		Root filesystem is mounted
+		Systemd runs
+		Default run target is executed(along with dependencies)
+		Module indicated within runlevel target are executed
+			Systemd runlevels
+			0 - poweroff.target
+			1 - rescue.target(Single User/Rescue Shell)
+			2 - Multi-user.target(Non-graphical,Full N/w,Multi-User)
+			3 - Multi-user.target(Non-graphical,Full N/w,Multi-User)
+			4 - Multi-user.target(Non-graphical,Full N/w,Multi-User)
+			5 - graphical.target(graphical desktop,multi user)
+			6 - reboot.target(reboot)
+				cat /etc/inittab
+				cd /usr/lib/systemd/system
+					list of services and targets
+				ls -la *.target
+		Remaingin local filesystems are mounted
+		N/w devices are started
+		REmote filesystems are mounted
+		systemd sets the runlevel as indicated in the default target
+		System login prompt is dispalyed on console,system is ready for login
+		
+Init and RC Scripts - sysvinit
+	/etc/init.d /etc/rc.d
+	cd /etc/init.d and /etc/rc.d
+	ls
+	rc,rc0.d
+	init.d -> rc.d/inti.d
+	
+	cd rc.d
+	ls
+	
+	cd init.d
+	ls
+	service start scripts
+	
+	cd ../rc
+	scripts that we execute 
+	runlevel - cmd to show the current runlevel
+	
+	cd rc3.d
+	ls
+	starts with 'S' is startup script
+	starts with 'K' is kill script
+	each service should have corresponding start and kill scripts
+	
+	cat S55sshd
+
+System Targets - systemd
+	concepts units replaces scripts of sysvinit for services
+	
+	
+	
+	
+	
+	
