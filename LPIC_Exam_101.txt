@@ -215,9 +215,60 @@ Init and RC Scripts - sysvinit
 	cat S55sshd
 
 System Targets - systemd
+	Targets and units
 	concepts units replaces scripts of sysvinit for services
+	$cat /etc/inittab
+	$cd /usr/lib/systemd/system
+	$ls -lrt *.target
+	$ls -l default.target
+	$cat graphical.target
+	[Unit]
+	Description
+	Documentation
+	Requires
+	Wants
+	Conflicts
+	After
+	AllowIsolate
+	$cat basic.target
+
+101.3 - Change Runlevels/Boot Targets and shutdown/reboot system (systemd,sysvinit and upstart)
+	current runlevel
+	#runlevel
+	N 3 (previous-runlevel current-runlevel)
+	to change runlevel
+	#telinit
+	#init
+	#man telinit
+	#man init
+	#telinit 5
+	#runlevel
+	3 5
+	#init 3
+	#runlevel
+	5 3
+	setting default runlevel on sysvinit
+	#vi /etc/inittab
+	reboot or shutdown -r are same
+	shutdown -h(halt)
+	shutdown -p(poweroff)
+	man shutdown
+	man wall
+	man halt
+	
+	#systemctl get-default
+	#systemctl set-default graphical.target
+	#systemctl list-units --type=target
+	#systemctl isolate multi-user.target
+	
+102.1 Design Hard Disk Layout(Layout and Installation)
+	LVM Partitions - Logical Volume Manager
+	Standard partition - fdisk gdisk
 	
 	
+	
+	
+
 	
 	
 	
