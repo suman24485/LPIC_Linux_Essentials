@@ -736,8 +736,11 @@ Archiving
     tar
         -a linux utility that archives things."It doesn't compress or compact files".It just sticks all your files together into one file
         -traditionally tar was used to create tape backups.we used it to archive date onto tape backup drives.tar actually stands for "Tape Archive".
-        - -cf (creates file)
-        - -xf (extracts file)
+        -cf (creates file)
+        -xf (extracts file)
+        -r append
+        -t list contents of archive
+        -f read from or write to a file
 Compressing Archived files or just any file
 Gzip - gzip,gunzip
 Bzip2 - bzip2,bunzip
