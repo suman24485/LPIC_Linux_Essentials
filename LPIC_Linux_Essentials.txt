@@ -720,6 +720,7 @@ mv command
 rm command
 mkdir command
 
+file <filename>  = outputs file type
 -------------------------------
 Case Sensitivity
 -------------------------------
@@ -728,6 +729,13 @@ Case Sensitivity
 Simple globbing and quoting
 -------------------------------
 Practice
+*
+?
+[]
+^
+$
+{}
+|
 
 -------------------------------
 Power of linux command line
@@ -753,7 +761,8 @@ Zip - zip,unzip
         
         -zvf
         -jvf
-        
+        deleting a single file in a tar file
+tar --delete --file=<tarfile> <file to delete>
 --------------------------------------------------------------
 Searchign and Extracting data from files commands
 --------------------------------------------------------------
